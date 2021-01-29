@@ -19,13 +19,11 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <nav>
-          {isLoggedIn && <Link to='/' onClick={logout}>Logout</Link>}
-        </nav>
+
       <Switch>
 
         <Route exact path="/" render={props => {
-          return <Login {...props} setIsLoggedIn={setIsLoggedIn}/>
+          return <Login {...props} />
         }}/>
         
         <PrivateRoute path="/bubblepage" component={BubblePage} />

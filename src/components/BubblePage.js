@@ -32,7 +32,7 @@ const BubblePage = (props) => {
   return (
     <>
         <nav>
-          {!isLoggedIn && <Link to='/' onClick={logout}>Logout</Link>}
+          <Link to='/' onClick={logout}>Logout</Link>
         </nav>
       <ColorList colors={colorList} updateColors={setColorList} />
       <Bubbles colors={colorList} />
