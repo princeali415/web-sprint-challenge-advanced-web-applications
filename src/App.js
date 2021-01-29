@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch,  Link } from "react-router-dom";
 
 import Login from "./components/Login";
 import BubblePage from './components/BubblePage'
@@ -13,7 +13,7 @@ function App() {
 
   const logout = () => {
     localStorage.removeItem("token");
-    setIsLoggedIn(false)
+    setIsLoggedIn(false);
   }
 
   return (
@@ -21,24 +21,18 @@ function App() {
       <div className="App">
       <ul>
         <li style={{listStyle:'none'}}>
-          {!isLoggedIn && <Link to='/login' style={{display:'none'}}>Login</Link>}
-          {isLoggedIn && <Link to='/login' onClick={logout}>Logout</Link>}
+              {isLoggedIn && <Link to='/' onClick={logout}>Logout</Link>}
         </li>
-        {/* <li>
-          <Link to="/bubblepage">Bubble Page</Link>
-        </li> */}
       </ul>
+        <Switch>
+        
+        <PrivateRoute path="/bubblepage" component={BubblePage} />
 
         <Route exact path="/" render={props => {
           return <Login {...props} setIsLoggedIn={setIsLoggedIn}/>
         }}/>
-
-        <Route path="/login" render={props => {
-          return <Login {...props} setIsLoggedIn={setIsLoggedIn}/>
-        }}/>
-
-        <PrivateRoute path="/bubblepage" component={BubblePage}/>
-
+        
+        </Switch>
       </div>
     </Router>
   );
