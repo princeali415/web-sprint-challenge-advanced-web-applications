@@ -22,7 +22,7 @@ function App() {
       <ul>
         <li style={{listStyle:'none'}}>
           {!isLoggedIn && <Link to='/login' style={{display:'none'}}>Login</Link>}
-          {isLoggedIn && <Link onClick={logout}>Logout</Link>}
+          {isLoggedIn && <Link to='/login' onClick={logout}>Logout</Link>}
         </li>
         {/* <li>
           <Link to="/bubblepage">Bubble Page</Link>
