@@ -43,6 +43,7 @@ const ColorList = ({ colors, updateColors }) => {
         updateColors(colors.filter(curColor => {
           return curColor.id !== res.data
         }))
+        console.log(res)
       })
       .catch(err => {
         console.log(err)
