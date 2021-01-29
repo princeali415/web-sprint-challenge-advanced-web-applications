@@ -25,6 +25,7 @@ const Login = (props) => {
     axios.post('http://localhost:5000/api/login', user)
     .then(res => {
       console.log(res)
+      props.setIsLoggedIn(true)
       localStorage.setItem("token", res.data.payload);
       props.history.push("/bubblepage")                  // maaybe you can just use push
     })
