@@ -27,7 +27,7 @@ const Login = (props) => {
       console.log(res)
       props.setIsLoggedIn(true)
       localStorage.setItem("token", res.data.payload);
-      props.history.push("/bubblepage")                  // maaybe you can just use push
+      props.history.push("/bubblepage")              // maybe you can just use push
     })
     .catch(err => {
       console.log(err)
@@ -41,7 +41,7 @@ const Login = (props) => {
         <p>Build a login page here</p>
       </h1>
       <form onSubmit={handleLogin}>
-        <label htmlFor='username'>Username</label>
+        <label htmlFor='username' >Username</label>
           <input
               type="text"
               name="username"

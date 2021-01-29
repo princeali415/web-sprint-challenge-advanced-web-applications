@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import EditMenu from './EditMenu'
 import {axiosWithAuth} from '../utils/axiosWithAuth'
+import { useParams, useHistory } from "react-router-dom";
 
 const initialColor = {
   color: "",
@@ -11,6 +12,8 @@ const initialColor = {
 const ColorList = ({ colors, updateColors }) => {
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
+
+  const {push} = useHistory();
   
 
   const editColor = color => {
@@ -40,14 +43,16 @@ const ColorList = ({ colors, updateColors }) => {
     axiosWithAuth()
       .delete(`/colors/${color.id}`)
       .then(res => {
-        updateColors(colors.filter(curColor => {
-          return curColor.id !== res.data
+        updateColors(colors.filter(color => {
+          return color.id !== res.data
         }))
-        console.log(res)
+        console.log(res.data)
       })
       .catch(err => {
         console.log(err)
       })
+      push("/bubblepage")
+      
   };
 
   return (
