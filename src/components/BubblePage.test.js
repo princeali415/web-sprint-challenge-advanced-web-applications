@@ -7,9 +7,7 @@ test("Renders BubblePage without errors", () => {
 });
 
 test("Fetches data and renders the bubbles on mounting", () => {
-  render(<BubblePage />);
-  let firstColor = screen.findByText(/aliceblue/i);
-  expect(firstColor).toBeTruthy()
+
 });
 
 //Task List
