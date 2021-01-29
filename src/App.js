@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Login from "./components/Login";
 import BubblePage from './components/BubblePage'
@@ -46,6 +46,6 @@ function App() {
 
 export default App;
 
-//Task List:
+//Task List: - COMPLETE
 //1. Render BubblePage as a PrivateRoute
 //2. Chnage inline styles to actual css styli sheet

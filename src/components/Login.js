@@ -64,7 +64,7 @@ const Login = (props) => {
 
 export default Login;
 
-//Task List:
+//Task List: - COMPLETE
 //1. Build a form containing a username and password field.
 //2. Add whatever state nessiary for form functioning.
 //3. MAKE SURE THAT FORM INPUTS INCLUDE THE LABEL TEST "username" and "password" RESPECTIVELY.
