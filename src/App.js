@@ -19,14 +19,11 @@ function App() {
   return (
     <Router>
       <div className="App">
-
-      <Switch>
-
-        <Route exact path="/" render={props => {
-          return <Login {...props} />
-        }}/>
-        
-        <PrivateRoute path="/bubblepage" component={BubblePage} />
+        <Switch>
+          <Route exact path="/" render={props => {
+            return <Login {...props} />
+          }}/>
+          <PrivateRoute path="/bubblepage" component={BubblePage} />
         </Switch>
       </div>
     </Router>
