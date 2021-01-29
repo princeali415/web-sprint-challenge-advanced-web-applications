@@ -9,12 +9,7 @@ import "./styles.scss";
 
 function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const logout = () => {
-    localStorage.removeItem("token");
-    setIsLoggedIn(false);
-  }
 
   return (
     <Router>
