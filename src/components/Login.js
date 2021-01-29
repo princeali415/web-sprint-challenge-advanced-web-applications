@@ -12,6 +12,7 @@ const Login = (props) => {
   // when you have handled the token, navigate to the BubblePage route
 
   const [user, setUser] = useState(loginCredential)
+  const [errMessage, setErrMessage] = useState('')
 
   const handleChange = e => {
     setUser({
@@ -25,12 +26,13 @@ const Login = (props) => {
     axios.post('http://localhost:5000/api/login', user)
     .then(res => {
       console.log(res)
-      props.setIsLoggedIn(true)
+ 
       localStorage.setItem("token", res.data.payload);
       props.history.push("/bubblepage")              // maybe you can just use push
     })
     .catch(err => {
       console.log(err)
+      setErrMessage('Invalid username or password')
     })
   }
 
@@ -55,6 +57,7 @@ const Login = (props) => {
               value={user.password}
               onChange={handleChange}
           />
+          {errMessage !== '' ? <p>{errMessage}</p> : ''}
         <button>Log in</button>
       </form>
 

@@ -9,29 +9,16 @@ import "./styles.scss";
 
 function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const logout = () => {
-    localStorage.removeItem("token");
-    setIsLoggedIn(false);
-  }
 
   return (
     <Router>
       <div className="App">
-      <ul>
-        <li style={{listStyle:'none'}}>
-              {isLoggedIn && <Link to='/' onClick={logout}>Logout</Link>}
-        </li>
-      </ul>
         <Switch>
-        
-        <PrivateRoute path="/bubblepage" component={BubblePage} />
-
-        <Route exact path="/" render={props => {
-          return <Login {...props} setIsLoggedIn={setIsLoggedIn}/>
-        }}/>
-        
+          <Route exact path="/" render={props => {
+            return <Login {...props} />
+          }}/>
+          <PrivateRoute path="/bubblepage" component={BubblePage} />
         </Switch>
       </div>
     </Router>
